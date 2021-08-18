@@ -1,0 +1,28 @@
+h1{
+    color: azure;
+    text-align: center;
+    font-size: xx-large;
+    margin-top: 30px;
+}
+table {
+    width: 80%;
+  }
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  .logout{
+      margin-top: 50px;
+      display: table-cell;
+      background-color: white;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  .center-content {
+    margin-top: 100px;
+    text-align: -webkit-center;
+}
+  

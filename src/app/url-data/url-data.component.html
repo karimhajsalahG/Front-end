@@ -1,0 +1,62 @@
+<div class="row">
+<div class="col-sm-9">
+    <h1> your Urls Data </h1>
+</div>
+<div class="col-sm-2" style="margin-top: 30px;">
+        <a class="logout" mat-button (click)="logout()" >Logout <mat-icon aria-hidden="false"  aria-label="Example home icon" >input</mat-icon></a>
+</div>
+</div>
+<div class="row">
+    <div class="col-sm-1">
+
+    </div>
+    <div class="col-sm-5">
+        <div class="center-content">
+            <mat-card class="example-card">
+                <mat-tab-group mat-align-tabs="center" animationDuration="1000ms">
+                    <mat-tab label="Data Table"> <table mat-table [dataSource]="allData" class="mat-elevation-z8">
+                        <ng-container matColumnDef="url">
+                          <th mat-header-cell *matHeaderCellDef> Urls </th>
+                          <td mat-cell *matCellDef="let element"> {{element.lien}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="vues">
+                          <th mat-header-cell *matHeaderCellDef> Vues </th>
+                          <td mat-cell *matCellDef="let element"> {{element.vues}} </td>
+                        </ng-container> 
+                        <ng-container matColumnDef="action">
+                          <th mat-header-cell *matHeaderCellDef> Action </th>
+                          <td mat-cell *matCellDef="let element" ><button mat-icon-button  (click)="visitUrl( element.id , element.lien)" color="primary" aria-label="Example icon button with a heart icon">
+                            <mat-icon aria-hidden="false"  aria-label="Example home icon" >launch</mat-icon>
+                          </button> 
+                          </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                      </table> </mat-tab>
+                    <mat-tab label="Add url">
+                    <form class="example-form">
+                        <mat-form-field class="example-full-width" >
+                          <mat-label>add an url</mat-label>
+                          <input matInput placeholder="Ex. http://www.google.com"  [(ngModel)]="url" name="url">
+                        </mat-form-field>
+                        <div class="button">
+                            <button mat-raised-button color="primary" (click)="addUrl()" >Submit</button>
+                        </div>
+                      </form> </mat-tab>
+                  </mat-tab-group>
+          
+            </mat-card>
+          </div>
+        
+    </div>
+    <div class="col-sm-5">
+        <div class="center-content">
+            <mat-card class="example-card">
+                <highcharts-chart
+                [Highcharts] = "highcharts" 
+                [options] = "chartOptions">
+            </highcharts-chart>
+            </mat-card>
+        </div>
+    </div>
+</div>
