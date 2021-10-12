@@ -25,7 +25,7 @@ export class LoginAndRegisterComponent implements OnInit {
    }
    register() {
      if(this.rcpassword==this.rpassword){
-       this.http.post("https://testappurls.herokuapp.com/register",{email : this.remail , Password : this.rpassword}).subscribe((res: any)=>{
+       this.http.post("http://localhost:3000/register",{email : this.remail , Password : this.rpassword}).subscribe((res: any)=>{
          if(res.Result ){
            this.snackBar.open('Register  Successful','',{duration:1000})
          }
@@ -38,7 +38,7 @@ export class LoginAndRegisterComponent implements OnInit {
      }
    }
    login() {
-     this.http.post("https://testappurls.herokuapp.com/login",{email : this.email , Password : this.password}).subscribe((res: any)=>{
+     this.http.post("http://localhost:3000/login",{email : this.email , Password : this.password}).subscribe((res: any)=>{
        if(res.Result){ 
          localStorage.setItem("connectedUser", res.connectedUser)
           this.router.navigate(["/urlData"])
